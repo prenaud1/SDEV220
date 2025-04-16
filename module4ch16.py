@@ -1,3 +1,16 @@
+"""
+module4ch16.py
+IvyTecy SDEV220 
+April 16, 2025
+by Paul Renaud
+Most of this code is not actually part of the assignment, as it was just me creating the db.
+So it is commented out.
+The first part (with the zoo) is from the textbook. The second part (books) is from the question,
+but the final part (with sqlalchemy) will likely fail unless the books db is created first, and
+you pip install sqlalchemy.
+
+"""
+
 import sqlite3
 
 '''
@@ -67,7 +80,8 @@ conn.close()
 # 16.8 Using sqlalchemy
 # Note, had to install sqlalchemy first with
 # pip install sqlalchemy
-
+# Also, textbook not quite right in implementation, as Engine does not have an execute() method, but
+# Engine.connect() does. Also had to import text method.
 print("\nUsing sqlalchemy")
 import sqlalchemy as sa
 from sqlalchemy import text
@@ -76,3 +90,15 @@ with engine.connect() as conn:
 	rows = conn.execute(text("SELECT title FROM books ORDER BY title"))
 	for row in rows:
 		print(row)
+
+"""
+The output I got from this was:
+
+Using sqlalchemy
+('Perdido Street Station',)
+('Small Gods',)
+('The Spellman Files',)
+('The Weirdstone of Brisingamen',)
+('Thud!',)
+
+"""
