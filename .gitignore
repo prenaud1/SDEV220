@@ -2,3 +2,4 @@ __pycache__/zoo.cpython-313.pyc
 /api/__pycache__/*
 /django
 /django/*
+/project_for_testing/my_sum/__pycache__
